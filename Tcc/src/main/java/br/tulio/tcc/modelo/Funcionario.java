@@ -31,6 +31,7 @@ public class Funcionario extends Pessoa{
 	public void setDataDesl(Date dataDesl) {
 		this.dataDesl = dataDesl;
 	
+		
 	}
 	
 	
