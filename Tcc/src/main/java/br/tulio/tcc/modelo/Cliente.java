@@ -1,16 +1,21 @@
 package br.tulio.tcc.modelo;
 
+import java.util.Date;
+
+import javax.persistence.Entity;
+
+@SuppressWarnings("serial")
+@Entity
 public class Cliente extends Pessoa {
-	
-	private Integer codigo;
+	private Date dataCadastro;
 
-	public Integer getCodigo() {
-		return codigo;
+	public Date getDataCadastro() {
+		return dataCadastro;
 	}
 
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
-	}
+	public void setDataCadastro(Date dataCadastro) {
+		this.dataCadastro = dataCadastro;
+	} 
 	
 	
 }

@@ -2,19 +2,14 @@ package br.tulio.tcc.modelo;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+
+@SuppressWarnings("serial")
+@Entity
 public class Funcionario extends Pessoa {
-	private Integer codigo;
 	private Double salario;
 	private Date dataAdm;
 	private Date dataDesl;
-
-	public Integer getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
-	}
 
 	public Double getSalario() {
 		return salario;

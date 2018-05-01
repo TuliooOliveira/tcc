@@ -2,7 +2,11 @@ package br.tulio.tcc.modelo;
 
 import java.util.Date;
 
-public abstract class Pessoa {
+import javax.persistence.MappedSuperclass;
+
+@SuppressWarnings("serial")
+@MappedSuperclass
+public abstract class Pessoa extends DominioGenerico {
 	
 	private String nome;
 	private String cpf;
