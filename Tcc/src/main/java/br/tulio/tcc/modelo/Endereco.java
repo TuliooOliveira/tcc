@@ -1,6 +1,10 @@
 package br.tulio.tcc.modelo;
 
-public class Endereco {
+import javax.persistence.Entity;
+
+@SuppressWarnings("serial")
+@Entity
+public class Endereco extends DominioGenerico {
 
 	private String cep;
 	private String rua;
