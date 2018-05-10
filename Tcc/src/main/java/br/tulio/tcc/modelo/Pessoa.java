@@ -12,6 +12,8 @@ public abstract class Pessoa extends DominioGenerico {
 	private String cpf;
 	private Date data_nasc;
 	private String fone;
+	private Endereco endereco;
+
 
 	public String getNome() {
 		return nome;
@@ -43,6 +45,15 @@ public abstract class Pessoa extends DominioGenerico {
 
 	public void setFone(String fone) {
 		this.fone = fone;
+	}
+	
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
 	}
 
 }

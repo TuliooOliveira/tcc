@@ -10,6 +10,7 @@ public class Endereco extends DominioGenerico {
 	private String rua;
 	private Integer numero;
 	private String complemento;
+	private Estado estado;
 
 	public String getCep() {
 		return cep;
@@ -42,5 +43,15 @@ public class Endereco extends DominioGenerico {
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
 	}
+
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
+	
+	
 
 }

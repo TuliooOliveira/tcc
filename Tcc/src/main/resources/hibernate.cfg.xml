@@ -35,8 +35,11 @@
 		
 		<!-- Mapeamento das Entidades -->
 		<mapping class="br.tulio.tcc.modelo.Cliente" />
-		<mapping class="br.tulio.tcc.modelo.Funcionario" />
+		<mapping class="br.tulio.tcc.modelo.Cidade" />
 		<mapping class="br.tulio.tcc.modelo.Endereco" />
+		<mapping class="br.tulio.tcc.modelo.Estado" />
+		<mapping class="br.tulio.tcc.modelo.Funcionario" />
+		
 		
     </session-factory>
 
