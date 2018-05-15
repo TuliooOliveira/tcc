@@ -19,7 +19,7 @@
         <property name="connection.password">q1w2e3r4</property>
 
         <!-- JDBC connection pool (use the built-in) -->
-        <property name="connection.pool_size">1</property>
+        <property name="connection.pool_size">100</property>
 
         <!-- Enable Hibernate's automatic session context management -->
         <property name="current_session_context_class">thread</property>
@@ -31,7 +31,7 @@
         <property name="show_sql">true</property>
 
         <!-- Drop and re-create the database schema on startup -->
-        <property name="hbm2ddl.auto">update</property>
+        <property name="hbm2ddl.auto">validate</property>
 		
 		<!-- Mapeamento das Entidades -->
 		<mapping class="br.tulio.tcc.modelo.Cliente" />
@@ -39,6 +39,7 @@
 		<mapping class="br.tulio.tcc.modelo.Endereco" />
 		<mapping class="br.tulio.tcc.modelo.Estado" />
 		<mapping class="br.tulio.tcc.modelo.Funcionario" />
+		<mapping class="br.tulio.tcc.modelo.Usuario" />
 		
 		
     </session-factory>

@@ -1,15 +1,25 @@
 package br.tulio.tcc.modelo;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @SuppressWarnings("serial")
 @Entity
 public class Endereco extends DominioGenerico {
-
+	
+	@Column(length = 8, nullable = false)
 	private String cep;
+	
+	@Column(length = 100)
 	private String rua;
+	
 	private Integer numero;
 	private String complemento;
+	
+	@ManyToOne
+	@JoinColumn(nullable = false)
 	private Estado estado;
 
 	public String getCep() {
