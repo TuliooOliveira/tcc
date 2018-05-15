@@ -15,6 +15,6 @@ public class Usuario extends DominioGenerico{
 	
 	@Column(nullable = false)
 	private Boolean ativo;
-	
+	 
 
 }

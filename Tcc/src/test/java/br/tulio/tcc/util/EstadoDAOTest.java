@@ -17,6 +17,6 @@ public class EstadoDAOTest {
 		EstadoDAO estadoDAO = new EstadoDAO();
 		estadoDAO.salvar(estado);
 		
-	}
+	} 
 
 }

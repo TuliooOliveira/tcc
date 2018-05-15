@@ -7,7 +7,7 @@ import br.tulio.tcc.util.HibernateUtil;
 
 public class GenericDAO<Entidade> {
 	
-	public void salvar(Entidade entidade) {
+	public void salvar(Entidade entidade) { 
 		
 		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
 		Transaction transacao = null;
