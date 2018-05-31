@@ -1,4 +1,4 @@
-package br.tulio.tcc.modelo;
+package br.tulio.tcc.entidade;
 
 import java.util.Date;
 

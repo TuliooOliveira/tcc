@@ -34,12 +34,12 @@
         <property name="hbm2ddl.auto">validate</property>
 		
 		<!-- Mapeamento das Entidades -->
-		<mapping class="br.tulio.tcc.modelo.Cliente" />
-		<mapping class="br.tulio.tcc.modelo.Cidade" />
-		<mapping class="br.tulio.tcc.modelo.Endereco" />
-		<mapping class="br.tulio.tcc.modelo.Estado" />
-		<mapping class="br.tulio.tcc.modelo.Funcionario" />
-		<mapping class="br.tulio.tcc.modelo.Usuario" />
+		<mapping class="br.tulio.tcc.entidade.Cliente" />
+		<mapping class="br.tulio.tcc.entidade.Cidade" />
+		<mapping class="br.tulio.tcc.entidade.Endereco" />
+		<mapping class="br.tulio.tcc.entidade.Estado" />
+		<mapping class="br.tulio.tcc.entidade.Funcionario" />
+		<mapping class="br.tulio.tcc.entidade.Usuario" />
 		
 		
     </session-factory>
