@@ -10,10 +10,11 @@ import javax.persistence.MappedSuperclass;
 @SuppressWarnings("serial")
 @MappedSuperclass
 public class DominioGenerico implements Serializable{
-	private int codigo;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int codigo;
+	
 	public int getCodigo() {
 		return codigo;
 	}

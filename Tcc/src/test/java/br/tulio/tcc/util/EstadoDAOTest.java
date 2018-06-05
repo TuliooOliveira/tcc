@@ -15,8 +15,8 @@ public class EstadoDAOTest {
 	public void salvar() {
 
 		Estado estado = new Estado();
-		estado.setNome("Pernambuco");
-		estado.setSigla("PE");
+		estado.setNome("São Paulo");
+		estado.setSigla("SP");
 
 		EstadoDAO estadoDAO = new EstadoDAO();
 		estadoDAO.salvar(estado);
@@ -46,12 +46,35 @@ public class EstadoDAOTest {
 
 	}
 
+	
 	@Test
+	@Ignore
 	public void excluir() {
 		int codigo = 5;
 		EstadoDAO estadoDao = new EstadoDAO();
 		Estado estado = estadoDao.buscar(codigo);
 
+		estadoDao.excluir(estado);
+
+		if (estado == null) {
+			System.out.println("Nenhum registro encontrado!");
+		} else {
+			
+			System.out.println("Registro removido!");
+		System.out.println(estado.getCodigo() + " - " + estado.getSigla() + " - " + estado.getNome());
+		
+		}
+	}
+	
+	@Test
+	@Ignore
+	public void editar() {
+		int codigo = 4;
+		EstadoDAO estadoDao = new EstadoDAO();
+		Estado estado = estadoDao.buscar(codigo);
+		
+		estado.setNome("Pernam");
+		estado.setSigla("Pe");
 		estadoDao.excluir(estado);
 
 		if (estado == null) {
