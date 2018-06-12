@@ -1,31 +1,13 @@
 package br.tulio.tcc.entidade;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
 @SuppressWarnings("serial")
-@Entity
 public class Endereco extends DominioGenerico {
 	
-	@Column(length = 8, nullable = false)
 	private String cep;
-	
-	@Column(length = 100)
 	private String rua;
-	
 	private Integer numero;
-	
-	@Column(length = 50)
 	private String complemento;
-	
-	@ManyToOne
-	@JoinColumn(nullable = false)
 	private Estado estado;
-	
-	@ManyToOne
-	@JoinColumn(nullable = false)
 	private Cidade cidade;
 
 	public String getCep() {

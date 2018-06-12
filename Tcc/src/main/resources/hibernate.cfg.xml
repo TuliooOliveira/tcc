@@ -36,7 +36,7 @@
 		<!-- Mapeamento das Entidades -->
 		<mapping class="br.tulio.tcc.entidade.Cliente" />
 		<mapping class="br.tulio.tcc.entidade.Cidade" />
-		<mapping class="br.tulio.tcc.entidade.Endereco" />
+		<!-- <mapping class="br.tulio.tcc.entidade.Endereco" /> -->
 		<mapping class="br.tulio.tcc.entidade.Estado" />
 		<mapping class="br.tulio.tcc.entidade.Funcionario" />
 		<mapping class="br.tulio.tcc.entidade.Usuario" />
