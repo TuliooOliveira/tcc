@@ -16,11 +16,17 @@ public class Endereco extends DominioGenerico {
 	private String rua;
 	
 	private Integer numero;
+	
+	@Column(length = 50)
 	private String complemento;
 	
 	@ManyToOne
 	@JoinColumn(nullable = false)
 	private Estado estado;
+	
+	@ManyToOne
+	@JoinColumn(nullable = false)
+	private Cidade cidade;
 
 	public String getCep() {
 		return cep;
@@ -60,6 +66,14 @@ public class Endereco extends DominioGenerico {
 
 	public void setEstado(Estado estado) {
 		this.estado = estado;
+	}
+
+	public Cidade getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
 	}
 	
 	
