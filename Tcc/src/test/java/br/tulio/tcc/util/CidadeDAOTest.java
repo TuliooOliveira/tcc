@@ -18,7 +18,7 @@ public class CidadeDAOTest {
 
 		EstadoDAO estadoDAO = new EstadoDAO();
 
-		Estado estado = estadoDAO.buscar(1);
+		Estado estado = estadoDAO.buscar(3);
 
 		Cidade cidade = new Cidade();
 		cidade.setNome("Jaboatão dos Guararapes");
@@ -30,6 +30,7 @@ public class CidadeDAOTest {
 	}
 	
 	@Test
+	@Ignore
 	public void listar() {
 		CidadeDAO cidadeDAO = new CidadeDAO();
 		List<Cidade> resultado = cidadeDAO.listar();

@@ -11,12 +11,12 @@ import br.tulio.tcc.entidade.Estado;
 public class EstadoDAOTest {
 
 	@Test
-	@Ignore
+	/*@Ignore*/
 	public void salvar() {
 
 		Estado estado = new Estado();
-		estado.setNome("São Paulo");
-		estado.setSigla("SP");
+		estado.setNome("Pernambuco");
+		estado.setSigla("PE");
 
 		EstadoDAO estadoDAO = new EstadoDAO();
 		estadoDAO.salvar(estado);

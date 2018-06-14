@@ -2,22 +2,19 @@ package br.tulio.tcc.entidade;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@SuppressWarnings("serial")
+
 @Entity
 public class Funcionario extends Pessoa {
 	
 	private Double salario;
 	
-	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date dataAdm;
 	
-	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date dataDesl;
 
