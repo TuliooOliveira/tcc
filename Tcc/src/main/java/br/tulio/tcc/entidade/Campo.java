@@ -13,6 +13,8 @@ public class Campo {
 	
 	private String local;
 	
+	private Boolean coberta;
+	
 	private Boolean ativo;
 
 	public int getCodigo() {
@@ -39,6 +41,14 @@ public class Campo {
 		this.local = local;
 	}
 
+	public Boolean getCoberta() {
+		return coberta;
+	}
+
+	public void setCoberta(Boolean coberta) {
+		this.coberta = coberta;
+	}
+
 	public Boolean getAtivo() {
 		return ativo;
 	}
@@ -46,7 +56,7 @@ public class Campo {
 	public void setAtivo(Boolean ativo) {
 		this.ativo = ativo;
 	}
-	
+
 	
 
 }
