@@ -15,14 +15,14 @@ public class Equipamento {
 	
 	private String tipo;
 	
-	private String descricacao;
+	private String descricao;
+	
+	private Fabricante fabricante;
 	
 	@Temporal(TemporalType.DATE)
 	private Date dataAquisicao;
 	
 	private Boolean disponivel;
-	
-	
 
 	public int getCodigo() {
 		return codigo;
@@ -40,12 +40,20 @@ public class Equipamento {
 		this.tipo = tipo;
 	}
 
-	public String getDescricacao() {
-		return descricacao;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setDescricacao(String descricacao) {
-		this.descricacao = descricacao;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public Fabricante getFabricante() {
+		return fabricante;
+	}
+
+	public void setFabricante(Fabricante fabricante) {
+		this.fabricante = fabricante;
 	}
 
 	public Date getDataAquisicao() {
@@ -63,7 +71,5 @@ public class Equipamento {
 	public void setDisponivel(Boolean disponivel) {
 		this.disponivel = disponivel;
 	}
-
-	
 	
 }
