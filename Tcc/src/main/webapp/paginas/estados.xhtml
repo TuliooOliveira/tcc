@@ -14,6 +14,8 @@
 
 <h:body>
 
+	<p:growl id="mensagem" />
+
 	<h:form>
 		<p:panel header="Estados - Listagem">
 
@@ -21,7 +23,8 @@
 				paginator="true">
 
 				<f:facet name="header">
-					<p:commandButton value="Novo" oncomplete="PF('dialogo').show();" />
+					<p:commandButton value="Novo" oncomplete="PF('dialogo').show();" 
+					actionListener="#{estadoController.novo()}" update=":formCadastro:painel"/>
 				</f:facet>
 
 				<p:column headerText="Nome">
@@ -40,20 +43,27 @@
 
 	<p:dialog header="Estados - Cadastro" widgetVar="dialogo"
 		draggable="false" resizable="false" modal="true">
-		<h:form>
-		
-			<h:panelGrid columns="2">
+		<h:form id="formCadastro">
+
+			<h:panelGrid id="painel" columns="2">
 				<p:outputLabel value="Nome:" />
-				<p:inputText maxlength="50" size="30" />
-				
+				<p:inputText maxlength="50" size="30"
+					value="#{estadoController.estado.nome}" />
+
 				<p:outputLabel value="Sigla:" />
-				<p:inputText maxlength="2" size="10" />
+				<p:inputText maxlength="2" size="10"
+					value="#{estadoController.estado.sigla}" />
 			</h:panelGrid>
 
 			<h:panelGrid columns="2">
-				<p:commandButton value="Salvar" actionListener="#{estadoController.salvar}"/>
+			
+				<p:commandButton value="Salvar"
+					actionListener="#{estadoController.salvar()}" update=":mensagem :formCadastro:painel"/>
+					
 				<p:commandButton value="Fechar" oncomplete="PF('dialogo').hide();"/>
+					
 			</h:panelGrid>
+			
 		</h:form>
 	</p:dialog>
 

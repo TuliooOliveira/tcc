@@ -14,10 +14,12 @@ public class Estado{
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codigo;
 	
-	@Column(length = 2, nullable = false)
+	//@Column(length = 2, nullable = false)
+	@Column(nullable = false)
 	private String sigla;
 	
-	@Column(length = 50, nullable = false)
+	//@Column(length = 50, nullable = false)
+	@Column(nullable = false)
 	private String nome;
 
 	public int getCodigo() {

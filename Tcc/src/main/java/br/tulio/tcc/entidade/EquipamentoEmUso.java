@@ -1,5 +1,8 @@
 package br.tulio.tcc.entidade;
 
+import javax.persistence.Entity;
+
+@Entity
 public class EquipamentoEmUso {
 	
 	private Equipamento equipamento;

@@ -78,13 +78,21 @@
 			<artifactId>primefaces</artifactId>
 			<version>6.2</version>
 		</dependency>
-		
+
 		<!-- JAVAX -->
 		<dependency>
 			<groupId>javax.enterprise</groupId>
 			<artifactId>cdi-api</artifactId>
 			<version>2.0</version>
 		</dependency>
+		
+		<!-- Omnifaces -->
+		<dependency>
+			<groupId>org.omnifaces</groupId>
+			<artifactId>omnifaces</artifactId>
+			<version>1.14</version>
+		</dependency>
+
 
 	</dependencies>
 

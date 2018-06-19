@@ -1,9 +1,12 @@
 package br.tulio.tcc.entidade;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class Campo {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,8 +16,10 @@ public class Campo {
 	
 	private String local;
 	
+	@Column(nullable = false)
 	private Boolean coberta;
 	
+	@Column(nullable = false)
 	private Boolean ativo;
 
 	public int getCodigo() {
