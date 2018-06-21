@@ -19,8 +19,9 @@
 	<h:form id="formListagem">
 		<p:panel header="Estados - Listagem">
 
-			<p:dataTable id="tabela" emptyMessage="Nenhum registro encontrado" 
-				paginator="true" value="#{estadoController.estados}" var="estado" rows="5">
+			<p:dataTable id="tabela" emptyMessage="Nenhum registro encontrado"
+				paginator="true" value="#{estadoController.estados}" var="estado"
+				rows="5">
 
 				<f:facet name="header">
 					<p:commandButton value="Novo" oncomplete="PF('dialogo').show();"
@@ -39,12 +40,23 @@
 				</p:column>
 
 				<p:column headerText="Opções">
+
 					<p:commandButton icon="ui-icon-trash"
-					actionListener="#{estadoController.excluir()}" update="mensagem :formListagem :tabela">
+						actionListener="#{estadoController.excluir}"
+						update=":formListagem:tabela :mensagem">
 						<p:confirm header="Confirmação" message="Deseja excluir o estado?"
 							icon="ui-icon-alert" />
-							<f:attribute name="estadoSelecionado" value="#{estado}" />
-						</p:commandButton>
+						<f:attribute name="estadoSelecionado" value="#{estado}" />
+					</p:commandButton>
+					
+					
+					<p:commandButton icon="ui-icon-pencil"
+						actionListener="#{estadoController.editar}"
+						update=":formCadastro:painel" oncomplete="PF('dialogo').show();">
+						<f:attribute name="estadoSelecionado" value="#{estado}" />
+					</p:commandButton>
+					
+
 				</p:column>
 
 			</p:dataTable>
@@ -77,9 +89,9 @@
 
 				<p:commandButton value="Salvar"
 					actionListener="#{estadoController.salvar()}"
-					update=":mensagem :formCadastro:painel :formListagem:tabela" /> 
+					update=":mensagem :formCadastro:painel :formListagem:tabela" />
 
-				<p:commandButton value="Fechar" oncomplete="PF('dialogo').hide();"/>
+				<p:commandButton value="Fechar" oncomplete="PF('dialogo').hide();" />
 
 			</h:panelGrid>
 

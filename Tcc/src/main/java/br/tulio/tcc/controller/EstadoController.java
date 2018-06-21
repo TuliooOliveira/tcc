@@ -1,5 +1,6 @@
 package br.tulio.tcc.controller;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -13,9 +14,10 @@ import br.tulio.tcc.dao.EstadoDAO;
 import br.tulio.tcc.entidade.Estado;
 
 //@Named	 // Bean CDI
+@SuppressWarnings("serial")
 @ManagedBean // Bean JSF
 @ViewScoped // Tempo de vida dos objetos enquanto está na tela
-public class EstadoController {
+public class EstadoController implements Serializable {
 
 	private Estado estado;
 	private List<Estado> estados;
@@ -60,7 +62,7 @@ public class EstadoController {
 		try {
 
 			EstadoDAO estadoDao = new EstadoDAO();
-			estadoDao.salvar(estado);
+			estadoDao.merge(estado);
 
 			novo();
 			estados = estadoDao.listar(); // -> Atualiza tabela de listagem ao salvar novo estado
@@ -80,23 +82,28 @@ public class EstadoController {
 		 */
 	}
 
-	// Captura o item que foi selecionado da tabela da view
+	// -> Captura o item que foi selecionado da tabela da view
 	public void excluir(ActionEvent evento) {
-		
+
 		try {
 
 			estado = (Estado) evento.getComponent().getAttributes().get("estadoSelecionado");
+			
 			EstadoDAO estadoDao = new EstadoDAO();
 			estadoDao.excluir(estado);
-			
-			novo();
+
 			estados = estadoDao.listar(); // -> Atualiza tabela de listagem ao salvar novo estado
 
-			Messages.addGlobalInfo("Estado salvo com sucesso!");
+			Messages.addGlobalInfo("Estado removido com sucesso!");
 		} catch (RuntimeException erro) {
 			Messages.addGlobalError("Ocorreu um erro ao tentar remover o estado!");
 			erro.printStackTrace();
 		}
-		
+
+	}
+
+	// Captura o item que foi selecionado da tabela da view
+	public void editar(ActionEvent evento) {
+		estado = (Estado) evento.getComponent().getAttributes().get("estadoSelecionado");
 	}
 }

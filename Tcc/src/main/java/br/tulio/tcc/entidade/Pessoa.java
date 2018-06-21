@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @MappedSuperclass
 public abstract class Pessoa{
@@ -17,6 +19,8 @@ public abstract class Pessoa{
 	private String nome;
 	private String rg;
 	private String cpf;
+	
+	@Temporal(TemporalType.DATE)
 	private Date data_nasc;
 	private String fone;
 	private String celular;
