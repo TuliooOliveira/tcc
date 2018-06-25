@@ -12,6 +12,19 @@
 <h:body>
  <h:outputText value="Tulio Oliveira" />
  
+ 
+				<p:column headerText="CPF" filterBy="#{cliente.cpf}"
+					sortBy="#{cliente.cpf}">
+					<h:outputText value="#{cliente.cpf}" />
+				</p:column>
+ 
+ 
+ 				<p:outputLabel for="cpf" value="CPF:" />
+				<p:inputMask id="cpf" mask="999.999.999-99" size="10"
+					value="#{clienteController.cliente.cpf}" required="true"
+					requiredMessage="O campo 'CPF' é obrigatório" />
+					
+ 
  <p:editor />
  
 </h:body>

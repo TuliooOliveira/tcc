@@ -1,13 +1,19 @@
 package br.tulio.tcc.entidade;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
+@SuppressWarnings("serial")
 @Entity
-public class Usuario{
+public class Usuario implements Serializable{
 	
 	/*@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)*/
@@ -25,7 +31,38 @@ public class Usuario{
 	
 	@Column(nullable = false)
 	private Boolean ativo;
+	
+	@OneToOne
+	@JoinColumn(nullable = false)
+	private Funcionario funcionario;
+	
+	
+	@Transient
+	public String getTipoFormatado() {
+		String tipoFormatado = null;
 
+		if (tipo == 'A') {
+			tipoFormatado = "Administrador";
+		} else if (tipo == 'B') {
+			tipoFormatado = "Balconista";
+		} else if (tipo == 'G') {
+			tipoFormatado = "Gerente";
+		}
+		
+		return tipoFormatado;
+	}
+
+	@Transient
+	public String getAtivoFormatado(){
+		String ativoFormatado = "Não";
+		
+		if(ativo){
+			ativoFormatado = "Sim";
+		}
+		
+		return ativoFormatado;
+	}
+	
 	public int getCodigo() {
 		return codigo;
 	}
@@ -65,7 +102,13 @@ public class Usuario{
 	public void setAtivo(Boolean ativo) {
 		this.ativo = ativo;
 	}
-	
-	
 
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
+	}
+	
 }

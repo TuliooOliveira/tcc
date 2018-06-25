@@ -6,7 +6,12 @@
 
 	<!-- Nome da Aplicação -->
 	<display-name>Tcc</display-name>
-
+	
+	<!-- Página Princpal -->
+	<welcome-file-list>
+	<welcome-file>pages/autenticacao.xhtml</welcome-file>
+	</welcome-file-list>
+	
 	<!-- Estágio do Projeto -->
 	<context-param>
 		<param-name>javax.faces.PROJECT_STAGE</param-name>

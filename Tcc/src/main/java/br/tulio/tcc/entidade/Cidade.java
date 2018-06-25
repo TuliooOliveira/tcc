@@ -1,5 +1,7 @@
 package br.tulio.tcc.entidade;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,8 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+@SuppressWarnings("serial")
 @Entity
-public class Cidade {
+public class Cidade implements Serializable{
 
 	/* @GeneratedValue(strategy = GenerationType.AUTO) */
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)

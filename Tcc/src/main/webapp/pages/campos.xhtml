@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Campos</title>
+</h:head>
+
+<h:body>
+
+	<p:growl id="mensagem" />
+	<h:form id="formListagem">
+		<p:panel header="Campos - Listagem">
+
+			<p:dataTable id="tabela" emptyMessage="Nenhum registro encontrado"
+				paginator="true" value="#{campoController.campos}" var="campo"
+				rows="5">
+
+				<f:facet name="header">
+					<p:commandButton value="Novo" oncomplete="PF('dialogo').show();"
+						actionListener="#{campoController.novo}"
+						update=":formCadastro:painel">
+						<f:actionListener
+							type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
+					</p:commandButton>
+				</f:facet>
+
+				<p:column headerText="Nome" sortBy="#{campo.nome}"
+					filterBy="#{campo.nome}">
+					<h:outputText value="#{campo.nome}" />
+				</p:column>
+
+				<p:column headerText="Qtd. Jogadores" sortBy="#{campo.qtdJogadores}"
+					filterBy="#{campo.qtdJogadores}" style="text-align:center">
+					<h:outputText value="#{campo.qtdJogadores}" />
+				</p:column>
+
+				<p:column headerText="Bairro" sortBy="#{campo.local}"
+					filterBy="#{campo.local}">
+					<h:outputText value="#{campo.local}" />
+				</p:column>
+
+				<p:column headerText="Coberta" sortBy="#{campo.cobertaFormatado}"
+					filterBy="#{campo.cobertaFormatado}" style="text-align:center">
+					<h:outputText value="#{campo.cobertaFormatado}" />
+				</p:column>
+
+				<p:column headerText="Ativo" sortBy="#{campo.ativo}"
+					filterBy="#{campo.ativoFormatado}" style="text-align:center">
+					<h:outputText value="#{campo.ativoFormatado}" />
+				</p:column>
+
+				<p:column headerText="Opções">
+
+					<p:commandButton icon="ui-icon-trash"
+						actionListener="#{campoController.excluir}"
+						update=":mensagem :formListagem:tabela">
+						<p:confirm header="Confirmação" message="Deseja excluir o campo?"
+							icon="ui-icon-alert" />
+						<f:attribute name="campoSelecionado" value="#{campo}" />
+					</p:commandButton>
+
+
+					<p:commandButton icon="ui-icon-pencil"
+						actionListener="#{campoController.editar}"
+						update=":formCadastro:painel" oncomplete="PF('dialogo').show();">
+						<f:attribute name="campoSelecionado" value="#{estado}">
+							<f:actionListener
+								type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
+						</f:attribute>
+					</p:commandButton>
+
+
+				</p:column>
+
+			</p:dataTable>
+
+			<p:confirmDialog global="true">
+				<p:commandButton value="Sim" type="button"
+					styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+				<p:commandButton value="Não" type="button"
+					styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+			</p:confirmDialog>
+
+		</p:panel>
+	</h:form>
+
+	<p:dialog header="Campos - Cadastro" widgetVar="dialogo"
+		draggable="false" resizable="false" modal="true">
+		<h:form id="formCadastro">
+
+			<h:panelGrid id="painel" columns="2">
+
+				<p:outputLabel value="Nome:" />
+				<p:inputText maxlength="50" size="30"
+					value="#{campoController.campo.nome}" />
+
+				<p:outputLabel value="Qtd. Jogadores:" />
+				<p:inputText maxlength="5" size="5"
+					value="#{campoController.campo.qtdJogadores}" />
+
+				<p:outputLabel value="Bairro:" />
+				<p:inputText maxlength="50" size="30"
+					value="#{campoController.campo.local}" />
+
+				<p:outputLabel for="coberta" value="Coberta:" />
+				<p:selectBooleanCheckbox id="coberta"
+					value="#{campoController.campo.coberta}" />
+
+				<p:outputLabel for="ativo" value="Ativo:" />
+				<p:selectBooleanCheckbox id="ativo"
+					value="#{campoController.campo.ativo}" />
+
+			</h:panelGrid>
+
+			<h:panelGrid columns="2">
+
+				<p:commandButton value="Salvar"
+					actionListener="#{campoController.salvar}"
+					update=":mensagem :formCadastro:painel :formListagem:tabela">
+					<f:actionListener
+						type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
+				</p:commandButton>
+
+				<p:commandButton value="Fechar" oncomplete="PF('dialogo').hide();" />
+
+			</h:panelGrid>
+
+		</h:form>
+	</p:dialog>
+</h:body>
+</html>

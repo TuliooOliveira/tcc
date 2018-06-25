@@ -87,8 +87,9 @@ public class CidadeController implements Serializable {
 			CidadeDAO cidadeDao = new CidadeDAO();
 			cidadeDao.merge(cidade);
 
-			novo(); // -> atualiza objetos 
-			cidades = cidadeDao.listar(); // -> Atualiza tabela de listagem ao salvar novo estado
+			// -> atualiza objetos
+			novo();  
+			cidades = cidadeDao.listar();
 
 			Messages.addGlobalInfo("Cidade salvo com sucesso!");
 		} catch (RuntimeException erro) {
@@ -125,8 +126,8 @@ public class CidadeController implements Serializable {
 		try {
 			
 			cidade = (Cidade) evento.getComponent().getAttributes().get("cidadeSelecionada");
-			CidadeDAO cidadeDao = new CidadeDAO();
-			cidades = cidadeDao.listar(); // -> Atualiza tabela de listagem ao salvar novo estado
+			EstadoDAO estadoDAO = new EstadoDAO();
+			estados = estadoDAO.listar();
 
 		} catch (RuntimeException erro) {
 			Messages.addGlobalError("Ocorreu um erro ao tentar selecionar uma cidade!");

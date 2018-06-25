@@ -1,14 +1,20 @@
 package br.tulio.tcc.entidade;
 
+import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 
+@SuppressWarnings("serial")
 @Entity
-public class Funcionario extends Pessoa {
+public class Funcionario extends Pessoa implements Serializable{
+	
+	@Column(length = 15)
+	private String carteiraTrabalho;
 	
 	private Double salario;
 	
@@ -17,7 +23,7 @@ public class Funcionario extends Pessoa {
 	
 	@Temporal(TemporalType.DATE)
 	private Date dataDesl;
-
+	
 	public Double getSalario() {
 		return salario;
 	}
@@ -43,4 +49,5 @@ public class Funcionario extends Pessoa {
 
 	}
 
+	
 }

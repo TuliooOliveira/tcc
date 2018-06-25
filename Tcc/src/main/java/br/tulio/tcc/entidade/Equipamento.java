@@ -1,24 +1,28 @@
 package br.tulio.tcc.entidade;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+@SuppressWarnings("serial")
 @Entity
-public class Equipamento {
+public class Equipamento implements Serializable{
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int codigo;
+	private int codigo_equip;
 	
-	private String tipo;
-	
+	@Column(length = 50)
 	private String descricao;
 	
 	@ManyToOne
@@ -30,20 +34,16 @@ public class Equipamento {
 	
 	private Boolean disponivel;
 
-	public int getCodigo() {
-		return codigo;
+	@ManyToMany(mappedBy = "equipamentos")
+	private List<Campo> campos;
+	
+
+	public int getCodigo_equip() {
+		return codigo_equip;
 	}
 
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
-	}
-
-	public String getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	public void setCodigo_equip(int codigo_equip) {
+		this.codigo_equip = codigo_equip;
 	}
 
 	public String getDescricao() {

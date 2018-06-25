@@ -31,7 +31,7 @@
 		<property name="show_sql">true</property>
 
 		<!-- Drop and re-create the database schema on startup -->
-		<property name="hbm2ddl.auto">validate</property>
+		<property name="hbm2ddl.auto">update</property>
 
 		<!-- Mapeamento das Entidades -->
 		<mapping class="br.tulio.tcc.entidade.Campo" />
@@ -42,6 +42,7 @@
 		<mapping class="br.tulio.tcc.entidade.Fabricante" />
 		<mapping class="br.tulio.tcc.entidade.Funcionario" />
 		<mapping class="br.tulio.tcc.entidade.Manutencao" />
+		<mapping class="br.tulio.tcc.entidade.ReservaDeCampo" />
 		<mapping class="br.tulio.tcc.entidade.Usuario" />
 		
 		<!-- <mapping class="br.tulio.tcc.entidade.Endereco" /> -->

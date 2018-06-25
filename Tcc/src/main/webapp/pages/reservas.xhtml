@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Reservas</title>
+</h:head>
+
+
+<h:body>
+
+
+	<style type="text/css">
+.value {
+	width: 1000px;
+}
+</style>
+
+	<p:growl id="mensagem" />
+
+	<h:form>
+
+		<h3 style="margin-top: 0">Reservas de Campos</h3>
+
+		<p:schedule id="schedule" value="#{resevarController.reservas}"
+			widgetVar="myschedule" timeZone="GMT+2" locale="pt_BR"
+			style="text/css">
+
+			<p:ajax event="dateSelect" listener="#{resevarController.novo}"
+				update="formCadastro" oncomplete="PF('dialogo').show();">
+
+				<f:actionListener
+					type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
+			</p:ajax>
+
+		</p:schedule>
+
+	</h:form>
+
+	<p:dialog header="Reservar" widgetVar="dialogo"
+		draggable="false" resizable="false" modal="true" showEffect="clip"
+		hideEffect="clip">
+		<h:form id="formCadastro">
+
+			<h:panelGrid id="painel" columns="2">
+
+				<p:outputLabel for="cliente" value="Clientes:" />
+				<p:selectOneMenu id="cliente" filter="true"
+					value="#{resevarController.reservasCampo.cliente}" required="true"
+					requiredMessage="O campo 'Cliente' é obrigatório"
+					converter="omnifaces.SelectItemsConverter">
+					<f:selectItem noSelectionOption="true"
+						itemLabel="Selecione um Cliente" />
+					<f:selectItems value="#{resevarController.clientes}" var="cliente"
+						itemValue="#{cliente}"
+						itemLabel="#{cliente.nome} - #{cliente.cpf}" />
+				</p:selectOneMenu>
+
+				<p:outputLabel for="campo" value="Campos:" />
+				<p:selectOneMenu id="campo" filter="true"
+					value="#{resevarController.reservasCampo.campo}" required="true"
+					requiredMessage="O campo 'Campos' é obrigatório"
+					converter="omnifaces.SelectItemsConverter">
+					<f:selectItem noSelectionOption="true"
+						itemLabel="Selecione um Campo" />
+					<f:selectItems value="#{resevarController.campos}" var="campo"
+						itemValue="#{cliente}" itemLabel="#{campo.nome} - #{campo.local}" />
+				</p:selectOneMenu>
+
+				<p:outputLabel for="turno" value="Turno:" />
+				<p:selectOneMenu id="turno"
+					value="#{resevarController.reservasCampo.turno}" required="true"
+					requiredMessage="O campo 'Turno' ´obrigatório">
+					<f:selectItem itemValue=" " itemLabel=" " />
+					<f:selectItem itemValue="M" itemLabel="Manhã" />
+					<f:selectItem itemValue="T" itemLabel="Tarde" />
+					<f:selectItem itemValue="N" itemLabel="Noite" />
+				</p:selectOneMenu>
+
+				<p:outputLabel for="data" value="Data:" />
+				<p:calendar id="data"
+					value="#{resevarController.event.startDate}"
+					pattern="dd/MM/yyyy" required="true" timeZone="GMT+2"
+					requiredMessage="Campo 'Data' de preenchimento obigatório"
+					locale="pt_BR" />
+
+				<p:outputLabel for="hora" value="Hora:" />
+				<p:calendar id="hora" showHour="true" timeZone="GMT+2"
+					value="#{resevarController.event.startDate}"
+					pattern="HH:mm" timeOnly="true" required="true" 
+					requiredMessage="Campo 'Hora' de preenchimento obigatório"
+					locale="pt_BR" />
+
+
+				<p:outputLabel value="Valor: " />
+				<p:inputText value="#{resevarController.reservasCampo.valor}">
+					<f:convertNumber locale="pt_BR" />
+				</p:inputText>
+
+				<p:outputLabel for="local" value="Local:" />
+				<p:inputText id="local" maxlength="20" size="20"
+					value="#{resevarController.reservasCampo.local}" />
+
+				<p:outputLabel for="obs" value="Obs:" />
+				<p:inputText id="obs" maxlength="50" size="30"
+					value="#{resevarController.reservasCampo.observacoes}" />
+
+			</h:panelGrid>
+
+			<h:panelGrid columns="2">
+
+				<p:commandButton value="Salvar"
+					actionListener="#{campoController.salvar}" update=":mensagem">
+					<f:actionListener
+							type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
+			   </p:commandButton>
+
+				<p:commandButton value="Fechar" oncomplete="PF('dialogo').hide();" />
+
+			</h:panelGrid>
+
+		</h:form>
+	</p:dialog>
+</h:body>
+</html>
